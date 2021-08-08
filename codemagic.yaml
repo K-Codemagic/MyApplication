@@ -33,16 +33,7 @@ workflows:
                     keyPassword=$CM_KEY_ALIAS_PASSWORD
                     keyAlias=$CM_KEY_ALIAS_USERNAME
                     storeFile=/tmp/keystore.jks
-                    EOF
-            - name: Build Android debug APK
-              script: |
-                ./gradlew assembleDebug
-            - name: Build Android test APK
-              script: |
-                ./gradlew assembleAndroidTest
-            - name: Build Android production release
-              script: |
-                ./gradlew assembleRelease    
+                    EOF   
         artifacts:
             - app/build/outputs/**/*.apk
         publishing:
@@ -52,4 +43,3 @@ workflows:
                 notify:
                   success: true
                   failure: false   
-           
