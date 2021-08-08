@@ -1,0 +1,45 @@
+workflows:
+    native-android:
+        name: Native Android
+        instance_type: mac_mini
+
+        environment:
+            vars:
+                # Android Keystore environment variables
+                CM_KEYSTORE: /app/mykey.jks
+                CM_KEYSTORE_PASSWORD: mykeys
+                CM_KEY_ALIAS_PASSWORD: mykeys
+                CM_KEY_ALIAS_USERNAME: mykey
+            node: latest
+            xcode: 12.2
+        triggering:
+            events:
+                - push
+                - tag
+                - pull_request
+            branch_patterns:
+                - pattern: develop
+                  include: true
+                  source: true
+        scripts:
+            - name: Set Android SDK location
+              script:
+                echo "sdk.dir=$ANDROID_SDK_ROOT" > "$FCI_BUILD_DIR/local.properties"
+            - name: Set up keystore
+              script: |
+                    echo $CM_KEYSTORE | base64 --decode > /tmp/keystore.jks
+                    cat >> "$FCI_BUILD_DIR/key.properties" <<EOF
+                    storePassword=$CM_KEYSTORE_PASSWORD
+                    keyPassword=$CM_KEY_ALIAS_PASSWORD
+                    keyAlias=$CM_KEY_ALIAS_USERNAME
+                    storeFile=/tmp/keystore.jks
+                    EOF   
+        artifacts:
+            - app/build/outputs/**/*.apk
+        publishing:
+            email:
+                recipients:
+                    - kalgi@nevercode.io
+                notify:
+                  success: true
+                  failure: false   
