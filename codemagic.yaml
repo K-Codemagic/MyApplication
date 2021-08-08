@@ -6,10 +6,10 @@ workflows:
         environment:
             vars:
                 # Android Keystore environment variables
-                CM_KEYSTORE: Encrypted(...) # <-- Put your encrypted keystore file here
-                CM_KEYSTORE_PASSWORD: Encrypted(...) # <-- Put your encrypted keystore password here
-                CM_KEY_ALIAS_PASSWORD: Encrypted(...) # <-- Put your encrypted keystore alias password here
-                CM_KEY_ALIAS_USERNAME: Encrypted(...) # <-- Put your encrypted keystore alias username here     
+                CM_KEYSTORE: /app/mykey.jks
+                CM_KEYSTORE_PASSWORD: mykeys
+                CM_KEY_ALIAS_PASSWORD: mykeys
+                CM_KEY_ALIAS_USERNAME: mykey
             node: latest
             xcode: 12.2
         triggering:
