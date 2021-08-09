@@ -34,6 +34,8 @@ workflows:
                     keyAlias=$CM_KEY_ALIAS_USERNAME
                     storeFile=/tmp/keystore.jks
                     EOF   
+       - name: Build Android app
+        script: ./gradlew assembleRelease
         artifacts:
             - app/build/outputs/**/*.apk
         publishing:
