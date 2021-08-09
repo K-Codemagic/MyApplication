@@ -35,12 +35,11 @@ workflows:
                     EOF
             - name: Build Android debug APK
               script: |
+                chmod +x ./gradlew
                 ./gradlew assembleDebug
-            - name: Build Android test APK
-              script: |
-                ./gradlew assembleAndroidTest
             - name: Build Android production release
               script: |
+                chmod +x ./gradlew
                 ./gradlew assembleRelease    
         artifacts:
             - app/build/outputs/**/*.apk
