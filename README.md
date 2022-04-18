@@ -25,24 +25,24 @@ docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000
 ```
 
 Now, log in to http://localhost:9000 with System Administrator credentials (login=admin, password=admin)
-![](Local_1)
+![](https://blog.codemagic.io/uploads/2022/04/Local_1.png)
 
 Click on the **Create new project** button. When asked how you want to create your project, select **Manually**.
-![](Local_2)
+![](https://blog.codemagic.io/uploads/2022/04/Local_2.png)
 
 Enter a **Project key** and a **Display name**, and click on **Set Up**.
-![](Local_3)
+![](https://blog.codemagic.io/uploads/2022/04/Local_3.png)
 
 Under Provide a token, enter a token name, and click on **Generate**. Copy the token and click on **Continue**. You will need this while running the analysis CLI command.
-![](Local_4)
+![](https://blog.codemagic.io/uploads/2022/04/Local_4.png)
 
 Select your **project’s main language**, and follow the instructions.
-![](Local_5)
+![](https://blog.codemagic.io/uploads/2022/04/Local_5.png)
 
 SonarQube has a dedicated Gradle plugin called [SonarScanner for Gradle](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner-for-gradle/), which can be used for generating the SonarQube analysis for your Android project.
 
 
-SonarQube provides Swift plugin support in the Developer edition. Unfortunately, it is not supported in Community Edition. But you can use their [SonarScanner](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/) as a CLI tool for generating the SonarQube analysis for your iOS project. 
+SonarQube provides **Swift** support in the Developer edition. Unfortunately, it is not supported in Community Edition. But you can use their [SonarScanner](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/) as a CLI tool for generating the SonarQube analysis for your iOS project. 
 You can always [request a free trial of Developer Edition](https://www.sonarqube.org/developer-edition/#language_list) and try it out for yourself.
 
 
@@ -66,7 +66,7 @@ Then use the following command from the terminal:
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=<login_token>
 ```
-![](Local_6)
+![](https://blog.codemagic.io/uploads/2022/04/Local_6.png)
 
 #### iOS integration
 Download SonarScanner from [here](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/), and add the bin directory to the PATH environment variable.
@@ -79,11 +79,11 @@ sonar-scanner \
   -Dsonar.host.url=http://localhost:9000 \
   -Dsonar.login=<login_token>
 ```
-![](Local_7)
+![](https://blog.codemagic.io/uploads/2022/04/Local_7.png)
 
 You will see the code analysis status displayed on the SonarQube dashboard. In order to connect Codemagic to your localhost SonarQube, you will need to make it accessible to the internet. In this case you can use [ngrok](https://ngrok.com/). Download the tool and follow the instructions on their website.
 
-![](Local_8)
+![](https://blog.codemagic.io/uploads/2022/04/Local_9.png)
 
 ## Connecting to SonarQube with Codemagic using AWS Linux EC2 instance
 
@@ -309,17 +309,17 @@ curl -s v4.ident.me
 ```
 Your sonar should be up now. You can access the sonarQube UI at `http://<<EC2 instance public ip>>:9000/sonarqube`. By default credentials remain login=admin, password=admin.
 
-![](aws_1)
+![](https://blog.codemagic.io/uploads/2022/04/aws_1.png)
 
 #### Step 8: Using SonarQube with Codemagic
 
 We can easily integrate SonarQube with [Codemagic](https://codemagic.io/start/) using the [codemagic.yaml](https://docs.codemagic.io/yaml/yaml-getting-started/) file. For that we will need to set the Environment variables in the Codemagic UI as shown below. Mark the environment variables secure and the group to the codemagic.yaml file.
 
-![](aws_2)
+![](https://blog.codemagic.io/uploads/2022/04/aws_2.png)
 
 Let’s define the build pipeline script in the codemagic.yaml file for both the Android and iOS projects.
 
-#### Android Project:
+#### Android Project
 ```
 workflows:
   android-workflow:
@@ -352,10 +352,10 @@ workflows:
 ```
 Once the build is successful, you can check your code analysis on SonarQube UI. 
 
-![](aws_3)
+![](https://blog.codemagic.io/uploads/2022/04/aws_3.png)
 
 
-#### iOS Project:
+#### iOS Project
 
 For the iOS build analysis, we have to first download and add the [SonarScanner](https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/) to the path. 
 SonarScanners running in Codemagic can automatically detect branches and merge or pull requests in certain jobs.
@@ -489,7 +489,7 @@ Pass the result to SonarQube by specifying the following properties:
 -Dsonar.cpp.file.suffixes=- \
 -Dsonar.objc.file.suffixes=-
 ```
-![](aws_4)
+![](https://blog.codemagic.io/uploads/2022/04/aws_4.png)
 
 And that’s it! You have successfully integrated SonarQube with Codemagic.
 
