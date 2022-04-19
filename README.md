@@ -81,7 +81,7 @@ sonar-scanner \
 ```
 ![](https://blog.codemagic.io/uploads/2022/04/Local_7.png)
 
-You will see the code analysis status displayed on the SonarQube dashboard. In order to connect Codemagic to your localhost SonarQube, you will need to make it accessible to the internet. In this case you can use [ngrok](https://ngrok.com/). Download the tool and follow the instructions on their website.
+You will see the code analysis status displayed on the SonarQube dashboard. In order to connect [Codemagic](https://codemagic.io/start/) to your localhost SonarQube, you will need to make it accessible to the internet. In this case you can use [ngrok](https://ngrok.com/). Download the tool and follow the instructions on their website.
 
 ![](https://blog.codemagic.io/uploads/2022/04/Local_9.png)
 
@@ -313,7 +313,9 @@ Your sonar should be up now. You can access the sonarQube UI at `http://<<EC2 in
 
 #### Step 8: Using SonarQube with Codemagic
 
-We can easily integrate SonarQube with [Codemagic](https://codemagic.io/start/) using the [codemagic.yaml](https://docs.codemagic.io/yaml/yaml-getting-started/) file. For that we will need to set the Environment variables in the Codemagic UI as shown below. Mark the environment variables secure and the group to the codemagic.yaml file.
+We can easily integrate [SonarQube with Codemagic](https://docs.sonarqube.org/latest/analysis/codemagic/) using the [codemagic.yaml](https://docs.codemagic.io/yaml/yaml-getting-started/) file. Codemagic recently worked together with Christophe Havard (Product Manager, SonarQube) in adding Codemagic to the list of supported CIs for branch and pull-request detection. You can check the SonarQube release notes [here](https://jira.sonarsource.com/browse/SONAR-15412). 
+
+For that we will need to set the Environment variables in the Codemagic UI as shown below. Mark the environment variables secure and the group to the codemagic.yaml file.
 
 ![](https://blog.codemagic.io/uploads/2022/04/aws_2.png)
 
@@ -505,7 +507,7 @@ For SonarQube to automatically detect pull requests when using Codemagic, you ne
 For **triggering** to work, you also need to set up [webhook](https://docs.codemagic.io/configuration/webhooks/) between Codemagic and your DevOps platform (Bitbucket, Github, etc.).
 
 ### Caching the .sonar folder
-Caching the `.sonar` folder saves time on subsequent analyses. To do this, add the following snippet to your `codemagic.yaml` file:
+Caching the `.sonar` folder would save build time on subsequent analyses. For this, add the following snippet to your `codemagic.yaml` file:
 ```
     cache:
       cache_paths:
