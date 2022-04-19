@@ -493,7 +493,7 @@ Pass the result to SonarQube by specifying the following properties:
 ```
 ![](https://blog.codemagic.io/uploads/2022/04/aws_4.png)
 
-And that’s it! You have successfully integrated SonarQube with Codemagic.
+And that’s it! We have successfully integrated SonarQube with Codemagic.
 
 
 ### Automatically detecting pull requests
