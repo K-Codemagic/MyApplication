@@ -315,7 +315,7 @@ Your sonar should be up now. You can access the sonarQube UI at `http://<<EC2 in
 
 We can easily integrate [SonarQube with Codemagic](https://docs.sonarqube.org/latest/analysis/codemagic/) using the [codemagic.yaml](https://docs.codemagic.io/yaml/yaml-getting-started/) file. Codemagic recently worked together with Christophe Havard (Product Manager, SonarQube) in adding Codemagic to the list of supported CIs for branch and pull-request detection. You can check the SonarQube release notes [here](https://jira.sonarsource.com/browse/SONAR-15412). 
 
-For that we will need to set the Environment variables in the Codemagic UI as shown below. Mark the environment variables secure and the group to the codemagic.yaml file.
+To integrate Sonarqube with Codemagic, we will need to set the Environment variables in the Codemagic UI as shown below. Mark the environment variables **secure** and add the respective **group** to the codemagic.yaml file.
 
 ![](https://blog.codemagic.io/uploads/2022/04/aws_2.png)
 
