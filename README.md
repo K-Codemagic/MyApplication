@@ -49,7 +49,7 @@ You can always [request a free trial of Developer Edition](https://www.sonarqube
 #### Android integration
 Integrating SonarQube with the Android project is pretty straightforward—follow the steps below:
 
-Navigate to your `build.gradle`(app).
+Navigate to your `app/build.gradle`.
 
 Add the SonarQube Gradle plugin:
 ```
@@ -318,6 +318,13 @@ We can easily integrate [SonarQube with Codemagic](https://docs.sonarqube.org/la
 To integrate Sonarqube with Codemagic, we will need to set the Environment variables in the Codemagic UI as shown below. Mark the environment variables **secure** and add the respective **group** to the codemagic.yaml file.
 
 ![](https://blog.codemagic.io/uploads/2022/04/aws_2.png)
+
+Also, Navigate to your `app/build.gradle` and add the SonarQube Gradle plugin:
+```
+plugins {
+    id "org.sonarqube" version "3.0"
+}
+```
 
 Let’s define the build pipeline script in the codemagic.yaml file for both the Android and iOS projects.
 
