@@ -531,8 +531,8 @@ SonarQube integration with Codemagic is really simple using the codemagic.yaml f
 - [SonarQube Documentation](https://docs.sonarqube.org/latest/)
 - [SonarQube Branch Analysis](https://docs.sonarqube.org/latest/branches/overview/)
 - [SonarQube Pull Request Decoration](https://docs.sonarqube.org/latest/analysis/ci-integration-overview/)
-- [Github Repo for Android Project](https://github.com/K-Codemagic/Android)
-- [Github Repo for iOS Project](https://github.com/K-Codemagic/Sonar)
+- [Github Repo for Android Project](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/sonarqube_integration_demo_project/Android)
+- [Github Repo for iOS Project](https://github.com/codemagic-ci-cd/codemagic-sample-projects/tree/main/integrations/sonarqube_integration_demo_project/Sonar)
 - [Codemagic documentation for Android Project](https://docs.codemagic.io/yaml-quick-start/building-a-native-android-app/)
 - [Codemagic documentation for iOS Project](https://docs.codemagic.io/yaml-quick-start/building-a-native-ios-app/)
 
